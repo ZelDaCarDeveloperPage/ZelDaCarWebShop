@@ -1,0 +1,35 @@
+﻿@model AutoShop.Models.User
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2 class="text-primary">Вход в учетную запись</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label class="col-sm-1 col-sm-offset-1">Почта</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-1 col-sm-offset-1">Пароль</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PASSWORD, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PASSWORD, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button class="btn btn-info" type="submit">OK</button>
+        </div>
+    </div>
+</div>
+}

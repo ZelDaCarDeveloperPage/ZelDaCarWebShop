@@ -1,0 +1,54 @@
+﻿@model IEnumerable<AutoShop.Models.User>
+
+@{
+    ViewBag.Title = "ShowUserList";
+}
+
+<h2>ShowUserList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "register")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ИМЯ
+        </th>
+        <th>
+            ФАМИЛИЯ
+        </th>
+        <th>
+            ОТЧЕСТВО*
+        </th>
+        <th>
+            Моб. телефон
+        </th>
+        <th>
+            Эл. почта
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMAIL)
+        </td>
+        <td>
+        </td>
+    </tr>
+}
+
+</table>

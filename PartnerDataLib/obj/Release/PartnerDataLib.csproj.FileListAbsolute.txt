@@ -1,0 +1,5 @@
+D:\Программирование\СайтАвто\AutoShop\PartnerDataLib\bin\Release\PartnerDataLib.dll
+D:\Программирование\СайтАвто\AutoShop\PartnerDataLib\bin\Release\PartnerDataLib.pdb
+D:\Программирование\СайтАвто\AutoShop\PartnerDataLib\obj\Release\PartnerDataLib.csprojAssemblyReference.cache
+D:\Программирование\СайтАвто\AutoShop\PartnerDataLib\obj\Release\PartnerDataLib.dll
+D:\Программирование\СайтАвто\AutoShop\PartnerDataLib\obj\Release\PartnerDataLib.pdb

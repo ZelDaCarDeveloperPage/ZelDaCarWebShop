@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "LoadPartListsTxt";
+}
+
+<h2>Выгрузка прайса (txt)</h2>
+@using (Html.BeginForm("LoadPartListTxt", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="upload" />
+    <br>
+    <input type="submit" value="Загрузить" />
+}
+
+

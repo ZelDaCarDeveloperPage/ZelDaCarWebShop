@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="~/Content/Site.css">
+    <link rel="icon" href="~/dacarIcon.ico" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Магазин автозапчастей в Зеленограде</title>
+</head>
+<body>
+    <div class="border-bottom border-danger" style="width:70%; margin-bottom:1rem; margin-left:auto; margin-right:auto;">
+        <h3 class="text-center text-primary">Магазин запасных частей Вашего автомобиля в <cite>Зеленограде</cite></h3>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            <img src="~/imgs/leftBoarder.png" style="width:8rem; height:12rem;" />
+        </div>
+        <div class="col-sm-8">
+            <img src="~/imgs/title3.png" style="width:30rem; height:3rem; display:block; margin-left:auto; margin-right:auto;" />
+            <img src="~/imgs/title2.png" style="width:38rem; height:8rem; display:block; margin-left:auto; margin-right:auto;" />
+        </div>
+        <div class="col-sm-2">
+            <div class="form row">
+                <label for="telID" class="text-primary col-sm-4">телефон</label>
+                <h6 id="telID" class="text-primary col-sm-8">+7 (985) 717-73-12</h6>
+                <span id="instId" class="col-sm-4">
+                    <img style="width: 1.5em; height: 1.5em;" src="~/imgs/dacarInst.png" />
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="border-bottom border-danger" style="width:70%; margin-left:auto; margin-right:auto; margin-bottom:2rem;">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/Index">Главная страница</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/About">О нас</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/Contact">Контакты</a>
+            </li>
+            @if (Session["Authed"] != null && (bool)Session["Authed"]
+              && Session["UserId"] != null && (int)Session["UserId"] >= 0)
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="/User/MyProfile?userId=@(Session["UserId"])">Профиль</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/User/LogOut">Выйти</a>
+                </li>
+                if (Session["Role"] != null && (string)Session["Role"] == "Admin")
+                {
+                    <li class="nav-item">
+                        <a class="nav-link " href="/User/ShowUserList">Список пользователей</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Бонусная программа</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Таблица заказов</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/User/ShowAdminPanel">Панель администратора</a>
+                    </li>
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="/User/Login">Войти</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/User/Register">Регистрация</a>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="container-fluid body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p class="text-center">&copy; @DateTime.Now.Year - магазин автозапчастей DaCar</p>
+        </footer>
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

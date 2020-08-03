@@ -1,0 +1,59 @@
+﻿@model IEnumerable<AutoShop.Models.Item>
+@{
+    ViewBag.Title = "UserCase";
+}
+
+<h2>Корзина</h2>
+<table class="table">
+    <tr>
+        <th>
+            Название
+        </th>
+        <th>
+            Цена
+        </th>
+        <th>
+            План. дата доставки
+        </th>
+        <th>
+            Кол-во
+        </th>
+        <th>
+            Заказать(шт.)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.NAME)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PRICE)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EndDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.COUNT)
+    </td>
+    <td>
+        <input type="number" class="form-control" min="0" max="@item.COUNT" step="1" />
+    </td>
+    @if (Session["Authed"] != null && (bool)Session["Authed"]
+          && Session["UserId"] != null && (int)Session["UserId"] >= 0)
+    {
+        <td>
+            <button type="button" href="/../.." class="btn btn-success">Оплата</button>
+        </td>
+    }
+    else
+    {
+        <td class="text-warning">
+            Для покупки требуется авторизация
+        </td>
+    }
+</tr>
+    }
+</table>

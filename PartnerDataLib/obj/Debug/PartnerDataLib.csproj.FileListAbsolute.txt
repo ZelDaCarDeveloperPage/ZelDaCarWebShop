@@ -1,0 +1,4 @@
+D:\Программирование\СайтАвто\AutoShop\PartnerDataLib\bin\Debug\PartnerDataLib.dll
+D:\Программирование\СайтАвто\AutoShop\PartnerDataLib\bin\Debug\PartnerDataLib.pdb
+D:\Программирование\СайтАвто\AutoShop\PartnerDataLib\obj\Debug\PartnerDataLib.dll
+D:\Программирование\СайтАвто\AutoShop\PartnerDataLib\obj\Debug\PartnerDataLib.pdb
